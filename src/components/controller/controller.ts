@@ -17,7 +17,7 @@ class AppController extends AppLoader {
                     newsContainer.setAttribute('data-source', sourceId);
                     super.getResp<NewsResponse>(
                         {
-                            eendpoint: 'mocks/everything',
+                            endpoint: 'mocks/everything',
                             options: { sources: sourceId },
                         },
                         callback
