@@ -48,7 +48,10 @@ class Loader {
             .then(this.errorHandler)
             .then((res) => res.json())
             .then((data: T) => callback(data))
-            .catch((err: Error) => console.error(err));
+            .catch((err: Error) => {
+                console.error(err);
+                callback({} as T);
+            });
     }
 }
 

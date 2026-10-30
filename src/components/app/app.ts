@@ -14,13 +14,15 @@ class App {
         const sourcesElement = document.querySelector('.sources') as HTMLElement;
 
         sourcesElement.addEventListener('click', (e: Event) => {
-            this.view.drawNewsSkeleton();
-            this.controller.getNews(e, (data) => this.view.drawNews(data));
+            const target = e.target as HTMLElement;
+            if (target.closest('.source__item')) {
+                this.view.drawNewsSkeleton();
+                this.controller.getNews(e, (data) => this.view.drawNews(data));
+            }
         });
 
         this.controller.getSources((data) => {
             this.view.drawSources(data);
-            
             const firstSource = document.querySelector('.source__item') as HTMLElement;
             if (firstSource) {
                 firstSource.click(); 
