@@ -1,9 +1,10 @@
 import AppLoader from './appLoader';
 import { NewsResponse, SourcesResponse } from '../interfaces';
+import { Endpoints } from '../../enums';
 
 class AppController extends AppLoader {
     getSources(callback: (data: SourcesResponse) => void): void {
-        super.getResp<SourcesResponse>({ endpoint: 'mocks/sources'}, callback);
+        super.getResp<SourcesResponse>({ endpoint: Endpoints.Sources }, callback);
     }
 
     getNews(e: Event, callback: (data: NewsResponse) => void): void {
@@ -17,7 +18,7 @@ class AppController extends AppLoader {
                     newsContainer.setAttribute('data-source', sourceId);
                     super.getResp<NewsResponse>(
                         {
-                            endpoint: 'mocks/everything',
+                            endpoint: Endpoints.Everything,
                             options: { sources: sourceId },
                         },
                         callback
