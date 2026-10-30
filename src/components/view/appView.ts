@@ -20,6 +20,10 @@ export class AppView {
         const values = data?.sources ? data.sources : [];
         this.sources.draw(values);
     }
+
+    drawNewsSkeleton(): void {
+        this.news.drawSkeleton();
+    }
 }
 
 export default AppView;

@@ -2,7 +2,26 @@ import './news.css';
 import { Article } from '../../interfaces';
 
 class News {
+
+    drawSkeleton(): void {
+        const container = document.querySelector('.news') as HTMLElement;
+        container.innerHTML = '';
+
+        for (let i = 0; i < 3; i++) {
+            const skeleton = document.createElement('div');
+            skeleton.className = 'skeleton skeleton-news';
+            skeleton.innerHTML = `
+            <div class="skeleton" style="height: 30px; width: 60%; margin-bottom: 15px;"></div>
+            <div class="skeleton" style="height: 15px; width: 100%; margin-bottom: 10px;"></div>
+            <div class="skeleton" style="height: 15px; width: 80%;"></div>
+        `;
+            container.appendChild(skeleton);
+        }
+    }
+
     draw(data: Article[]): void {
+        const container = document.querySelector('.news') as HTMLElement;
+        container.innerHTML = '';
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
         const fragment = document.createDocumentFragment();
@@ -16,7 +35,7 @@ class News {
 
             const metaPhoto = newsClone.querySelector('.news__meta-photo') as HTMLElement;
             metaPhoto.style.backgroundImage = `url(${item.urlToImage || 'img/news_placeholder.jpg'})`;
-            
+
             const metaAuthor = newsClone.querySelector('.news__meta-author') as HTMLElement;
             metaAuthor.textContent = item.author || item.source.name;
 
