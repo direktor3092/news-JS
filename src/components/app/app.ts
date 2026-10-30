@@ -1,6 +1,7 @@
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
 import { Theme } from '../theme/theme';
+import { ScrollToTop } from '../scroll/scroll';
 
 class App {
     private controller: AppController;
@@ -10,6 +11,7 @@ class App {
         this.controller = new AppController();
         this.view = new AppView();
         new Theme();
+        new ScrollToTop();
     }
 
     start(): void {
