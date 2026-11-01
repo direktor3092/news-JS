@@ -182,3 +182,56 @@
         display: none;
     }
 }
+
+/* --- Стили для скелетона --- */
+.skeleton-news {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skeleton-img {
+    width: 40%;
+    height: 200px;
+    flex-shrink: 0;
+}
+
+.skeleton-text-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.skeleton-title {
+    height: 30px;
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+.skeleton-line {
+    height: 15px;
+    width: 100%;
+}
+
+.skeleton-line.short {
+    width: 60%;
+}
+
+@media (max-width: 640px) {
+    .skeleton-news {
+        flex-direction: column;
+    }
+    .skeleton-img {
+        width: 100%;
+        height: 150px;
+    }
+}

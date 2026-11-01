@@ -2,18 +2,23 @@ import './news.css';
 import { Article } from '../../interfaces';
 
 class News {
-    drawSkeleton(): void {
+    public drawSkeleton(): void {
         const container = document.querySelector('.news') as HTMLElement;
         container.innerHTML = '';
 
         for (let i = 0; i < 3; i++) {
             const skeleton = document.createElement('div');
-            skeleton.className = 'skeleton skeleton-news';
+            skeleton.className = 'skeleton-news';
+            
             skeleton.innerHTML = `
-            <div class="skeleton" style="height: 30px; width: 60%; margin-bottom: 15px;"></div>
-            <div class="skeleton" style="height: 15px; width: 100%; margin-bottom: 10px;"></div>
-            <div class="skeleton" style="height: 15px; width: 80%;"></div>
-        `;
+                <div class="skeleton skeleton-img"></div>
+                <div class="skeleton-text-lines">
+                    <div class="skeleton skeleton-title"></div>
+                    <div class="skeleton skeleton-line"></div>
+                    <div class="skeleton skeleton-line"></div>
+                    <div class="skeleton skeleton-line short"></div>
+                </div>
+            `;
             container.appendChild(skeleton);
         }
     }
