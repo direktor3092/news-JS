@@ -18,8 +18,14 @@ class App {
         const sourcesElement = document.querySelector('.sources') as HTMLElement;
 
         sourcesElement.addEventListener('click', (e: Event) => {
-            const target = e.target as HTMLElement;
-            if (target.closest('.source__item')) {
+            const sourceItem = (e.target as HTMLElement).closest<HTMLElement>('.source__item');
+            
+            if (sourceItem) {
+                const allSourceItems = document.querySelectorAll<HTMLElement>('.source__item');
+                allSourceItems.forEach((item) => item.classList.remove('active'));
+
+                sourceItem.classList.add('active');
+
                 this.view.drawNewsSkeleton();
                 this.controller.getNews(e, (data) => this.view.drawNews(data));
             }
