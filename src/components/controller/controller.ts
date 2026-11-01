@@ -3,12 +3,12 @@ import { NewsResponse, SourcesResponse } from '../interfaces';
 import { Endpoints } from '../../enums';
 
 class AppController extends AppLoader {
-    getSources(callback: (data: SourcesResponse) => void): void {
+    public getSources(callback: (data: SourcesResponse) => void): void {
         super.getResp<SourcesResponse>({ endpoint: Endpoints.Sources }, callback);
     }
 
-    getNews(e: Event, callback: (data: NewsResponse) => void): void {
-        const target = (e.target as HTMLElement).closest('.source__item') as HTMLElement;
+    public getNews(e: Event, callback: (data: NewsResponse) => void): void {
+        const target = (e.target as HTMLElement).closest<HTMLElement>('.source__item');
         if (!target) return;
 
         const newsContainer = e.currentTarget as HTMLElement;
