@@ -31,10 +31,16 @@ body {
 }
 
 header {
-    padding: 10px 30px;
+    padding: 20px 30px;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 header h1 {
