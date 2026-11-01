@@ -1,0 +1,10 @@
+<!doctype html><html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta http-equiv="X-UA-Compatible" content="ie=edge"/><title>NewsPortal</title><link rel="icon" type="image/x-icon" href="./assets/favicon.ico"/><script>(function() {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                document.addEventListener('DOMContentLoaded', () => {
+                    const toggle = document.getElementById('theme-toggle');
+                    if (toggle) toggle.checked = true;
+                });
+            }
+        })();</script><script defer="defer" src="./index.js"></script></head><body><header><div class="header-content"><h1>News Portal</h1><label class="theme-switch" aria-label="Переключить тему"><input type="checkbox" id="theme-toggle"> <span class="slider"></span></label></div></header><main><div class="sources buttons"></div><div class="news"></div></main><footer><div class="footer-content"><p class="copyright">© 2026 <a href="https://github.com/direktor3092" target="_blank" rel="noopener">direktor3092</a></p><a href="https://rs.school/courses/javascript" target="_blank" rel="noopener"><img src="./assets/rs_school_js.svg" alt="RS School" class="rs-logo"></a></div></footer><template id="sourceItemTemp"><div class="source__item"><span class="source__item-name"></span></div></template><template id="newsItemTemp"><div class="news__item"><div class="news__meta"><div class="news__meta-photo"></div><ul class="news__meta-details"><li class="news__meta-author"></li><li class="news__meta-date"></li></ul></div><div class="news__description"><h2 class="news__description-title"></h2><h3 class="news__description-source"></h3><p class="news__description-content"></p><p class="news__read-more"><a href="#">Read More</a></p></div></div></template><button id="scroll-to-top" class="scroll-btn" aria-label="Наверх">↑</button></body></html>
