@@ -3,20 +3,27 @@
 }
 
 :root {
-    --bg-color: #17181c;
-    --text-color: #fff;
-    --card-bg: #fff;
-    --card-text: #333;
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --card-bg: #1e1e1e;
+    --card-text: #e0e0e0;
+    --accent-color: #FFD700;
+    --accent-hover: #ffea70;
+    --border-color: #333333;
 }
 
 [data-theme="light"] {
     --bg-color: #f4f4f9;
-    --text-color: #333;
-    --card-bg: #fff;
-    --card-text: #17181c;
+    --text-color: #121212;
+    --card-bg: #ffffff;
+    --card-text: #333333;
+    --accent-color: #121212;
+    --accent-hover: #333333;
+    --border-color: #d1d1d1;
 }
 
 body {
+    margin: 0;
     color: var(--text-color);
     background: var(--bg-color);
     font-family: sans-serif;
@@ -25,18 +32,22 @@ body {
 
 header {
     padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header h1 {
     font-size: 40px;
     font-weight: 800;
+    margin: 0;
 }
 
 footer {
     margin-top: 40px;
     padding: 20px 30px;
     background-color: var(--bg-color);
-    border-top: 1px solid rgba(128, 128, 128, 0.3);
+    border-top: 1px solid var(--border-color);
 }
 
 .footer-content {
@@ -55,14 +66,14 @@ footer {
 }
 
 .copyright a {
-    color: #30c5ff;
+    color: var(--accent-color);
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 .copyright a:hover {
-    color: #70d6ff;
+    color: var(--accent-hover);
     text-decoration: underline;
 }
 
@@ -78,40 +89,24 @@ footer {
 
 /* Скелетон анимация */
 @keyframes pulse {
-    0% {
-        background-color: rgba(255, 255, 255, 0.1);
-    }
-
-    50% {
-        background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    100% {
-        background-color: rgba(255, 255, 255, 0.1);
-    }
-}
-
-[data-theme="light"] .skeleton {
-    animation: pulse-light 1.5s infinite ease-in-out;
+    0% { background-color: var(--border-color); }
+    50% { background-color: #444444; }
+    100% { background-color: var(--border-color); }
 }
 
 @keyframes pulse-light {
-    0% {
-        background-color: rgba(0, 0, 0, 0.1);
-    }
-
-    50% {
-        background-color: rgba(0, 0, 0, 0.2);
-    }
-
-    100% {
-        background-color: rgba(0, 0, 0, 0.1);
-    }
+    0% { background-color: #e0e0e0; }
+    50% { background-color: #d0d0d0; }
+    100% { background-color: #e0e0e0; }
 }
 
 .skeleton {
     animation: pulse 1.5s infinite ease-in-out;
     border-radius: 5px;
+}
+
+[data-theme="light"] .skeleton {
+    animation: pulse-light 1.5s infinite ease-in-out;
 }
 
 .skeleton-news {
@@ -121,26 +116,16 @@ footer {
     max-width: 700px;
     display: flex;
     flex-direction: column;
-    background: #222;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
     padding: 20px;
 }
 
-[data-theme="light"] .skeleton-news {
-    background: #e0e0e0;
-}
-
-/* Стили для хедера и кнопки темы */
-header {
-    padding: 10px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
+/* Стили для кнопки темы */
 .theme-toggle {
     background: transparent;
-    border: 2px solid var(--text-color);
-    color: var(--text-color);
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
     font-size: 24px;
     cursor: pointer;
     border-radius: 50%;
@@ -149,14 +134,16 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .theme-toggle:hover {
     transform: scale(1.1);
+    color: var(--accent-hover);
+    border-color: var(--accent-hover);
 }
 
-/* Кнопка вверх*/
+/* Кнопка вверх */
 .scroll-btn {
     position: fixed;
     bottom: 30px;
@@ -164,22 +151,19 @@ header {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: #30c5ff;
-    color: #17181c;
+    background: var(--accent-color);
+    color: var(--bg-color);
     border: none;
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    
-
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
     transition: all 0.3s ease;
     z-index: 1000;
 }
-
 
 .scroll-btn.show {
     opacity: 1;
@@ -188,7 +172,7 @@ header {
 }
 
 .scroll-btn:hover {
-    background: #70d6ff;
+    background: var(--accent-hover);
     transform: translateY(-3px);
 }
 
@@ -209,20 +193,6 @@ header {
         text-align: center;
     }
 
-    .news__item {
-        flex-direction: column !important; 
-        max-width: calc(100% - 20px);
-        margin: 10px auto;
-    }
-
-    .news__item .news__meta {
-        height: 200px;
-    }
-
-    .news__item .news__description:before {
-        display: none;
-    }
-
     .scroll-btn {
         bottom: 20px;
         right: 20px;
@@ -234,19 +204,5 @@ header {
 @media (max-width: 480px) {
     header h1 {
         font-size: 24px;
-    }
-
-    .sources {
-        height: auto;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 10px;
-        gap: 10px;
-    }
-
-    .source__item {
-        padding: 10px 15px;
-        font-size: 14px;
-        margin: 0;
     }
 }
