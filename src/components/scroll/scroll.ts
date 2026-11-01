@@ -3,13 +3,13 @@ export class ScrollToTop {
 
     constructor() {
         this.button = document.querySelector('#scroll-to-top') as HTMLButtonElement;
-        
+
         window.addEventListener('scroll', () => this.toggleVisibility());
-        
+
         this.button.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
-                behavior: 'smooth'
+                behavior: 'smooth',
             });
         });
     }

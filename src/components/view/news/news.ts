@@ -2,7 +2,6 @@ import './news.css';
 import { Article } from '../../interfaces';
 
 class News {
-
     drawSkeleton(): void {
         const container = document.querySelector('.news') as HTMLElement;
         container.innerHTML = '';

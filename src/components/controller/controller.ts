@@ -13,7 +13,7 @@ class AppController extends AppLoader {
 
         const newsContainer = e.currentTarget as HTMLElement;
         const sourceId = target.getAttribute('data-source-id') as string;
-        
+
         newsContainer.setAttribute('data-source', sourceId);
         super.getResp<NewsResponse>(
             {

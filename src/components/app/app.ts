@@ -14,7 +14,7 @@ class App {
         new ScrollToTop();
     }
 
-    start(): void {
+    public start(): void {
         const sourcesElement = document.querySelector('.sources') as HTMLElement;
 
         sourcesElement.addEventListener('click', (e: Event) => {
@@ -29,7 +29,7 @@ class App {
             this.view.drawSources(data);
             const firstSource = document.querySelector('.source__item') as HTMLElement;
             if (firstSource) {
-                firstSource.click(); 
+                firstSource.click();
             }
         });
     }
