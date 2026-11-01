@@ -4,6 +4,8 @@
     justify-content: center;
     gap: 12px;
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px 30px;
     font: 300 1em 'Fira Sans', sans-serif;
 }
