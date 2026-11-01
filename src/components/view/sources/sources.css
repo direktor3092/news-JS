@@ -12,13 +12,16 @@
     background: transparent;
     border: 2px solid #30c5ff;
     font: inherit;
-    line-height: 1;
+    line-height: 1.2;
     padding: 10px 20px;
     color: #70d6ff;
     border-radius: 25px;
     transition: all 0.25s ease;
     cursor: pointer;
     user-select: none;
+    text-align: center;
+    max-width: 100%;
+    word-wrap: break-word;
 }
 
 .source__item:hover,
@@ -33,5 +36,11 @@
 
 .source__item-name {
     font-weight: 400;
-    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .sources {
+        padding: 15px 10px; 
+        gap: 8px; 
+    }
 }

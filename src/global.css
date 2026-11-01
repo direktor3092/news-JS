@@ -1,3 +1,7 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 :root {
     --bg-color: #17181c;
     --text-color: #fff;
@@ -192,7 +196,6 @@ header {
 @media (max-width: 768px) {
     header {
         padding: 10px 15px;
-        flex-direction: column;
         gap: 15px;
         text-align: center;
     }
