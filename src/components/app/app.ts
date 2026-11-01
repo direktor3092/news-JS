@@ -24,6 +24,7 @@ class App {
                 const allSourceItems = document.querySelectorAll<HTMLElement>('.source__item');
                 allSourceItems.forEach((item) => item.classList.remove('active'));
 
+
                 sourceItem.classList.add('active');
 
                 this.view.drawNewsSkeleton();
@@ -35,7 +36,7 @@ class App {
             this.view.drawSources(data);
             const firstSource = document.querySelector('.source__item') as HTMLElement;
             if (firstSource) {
-                firstSource.click();
+                firstSource.click(); 
             }
         });
     }
