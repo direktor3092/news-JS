@@ -1,5 +1,5 @@
 import './news.css';
-import { Article } from '../../interfaces';
+import { ArticlePreview } from '../../interfaces';
 
 class News {
     public drawSkeleton(): void {
@@ -23,7 +23,7 @@ class News {
         }
     }
 
-    public draw(data: Article[]): void {
+    public draw(data: ArticlePreview[]): void {
         const container = document.querySelector('.news') as HTMLElement;
         container.innerHTML = '';
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
