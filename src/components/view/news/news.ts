@@ -9,7 +9,7 @@ class News {
         for (let i = 0; i < 3; i++) {
             const skeleton = document.createElement('div');
             skeleton.className = 'skeleton-news';
-            
+
             skeleton.innerHTML = `
                 <div class="skeleton skeleton-img"></div>
                 <div class="skeleton-text-lines">
@@ -23,7 +23,7 @@ class News {
         }
     }
 
-    draw(data: Article[]): void {
+    public draw(data: Article[]): void {
         const container = document.querySelector('.news') as HTMLElement;
         container.innerHTML = '';
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;

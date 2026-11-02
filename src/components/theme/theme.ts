@@ -8,7 +8,7 @@ export class Theme {
         this.isDark = savedTheme ? savedTheme === 'dark' : true;
 
         this.toggle.checked = !this.isDark;
-        
+
         this.applyTheme();
 
         this.toggle.addEventListener('change', () => this.toggleTheme());

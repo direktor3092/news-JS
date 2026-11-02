@@ -31,6 +31,7 @@ const baseConfig = {
     output: {
         filename: 'index.js',
         path: path.resolve(__dirname, './dist'),
+        publicPath: './',
     },
     plugins: [
         new DotenvWebpackPlugin(),
@@ -41,7 +42,7 @@ const baseConfig = {
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
             patterns: [
-                { from: "src/assets", to: "assets" } // Копируем папку assets в dist
+                { from: "src/assets", to: "assets" }
             ]
         })
     ],

@@ -2,7 +2,7 @@ import './sources.css';
 import { SourceItem } from '../../interfaces';
 
 class Sources {
-    draw(data: SourceItem[]): void {
+    public draw(data: SourceItem[]): void {
         const fragment = document.createDocumentFragment();
         const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
         const limitedData = data.slice(0, 15);

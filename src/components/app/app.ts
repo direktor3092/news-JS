@@ -19,11 +19,10 @@ class App {
 
         sourcesElement.addEventListener('click', (e: Event) => {
             const sourceItem = (e.target as HTMLElement).closest<HTMLElement>('.source__item');
-            
+
             if (sourceItem) {
                 const allSourceItems = document.querySelectorAll<HTMLElement>('.source__item');
                 allSourceItems.forEach((item) => item.classList.remove('active'));
-
 
                 sourceItem.classList.add('active');
 
@@ -36,7 +35,7 @@ class App {
             this.view.drawSources(data);
             const firstSource = document.querySelector('.source__item') as HTMLElement;
             if (firstSource) {
-                firstSource.click(); 
+                firstSource.click();
             }
         });
     }

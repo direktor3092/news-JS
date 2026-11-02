@@ -43,14 +43,19 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    private load<T>(method: string, endpoint: string, callback: (data: T) => void, options: Partial<LoaderOptions> = {}): void {
+    private load<T>(
+        method: string,
+        endpoint: string,
+        callback: (data: T) => void,
+        options: Partial<LoaderOptions> = {}
+    ): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
             .then((data: T) => callback(data))
             .catch((err: Error) => {
                 console.error(err);
-                callback({} as T); 
+                callback({} as T);
             });
     }
 }
